@@ -10,13 +10,25 @@ public class AdminLoginAutomate {
 		// TODO Auto-generated method stub
 		System.setProperty("webdriver.chrome.driver", "/home/users/sanjay.bhatt/chromedriver_linux64/chromedriver");
 		WebDriver driver = new ChromeDriver(); // create object of interface
-		driver.get("http://192.168.15.237/sanjay-bagisot/public/admin/login/"); // open bagisto shop
+		driver.get("http://192.168.15.237/sanjay-bagisot/public/admin/login/"); // open bagisto Admin panel
 		driver.findElement(By.id("email")).sendKeys("admin@example.com");  // inser username
 		driver.findElement(By.id("password")).sendKeys("admin123"); // insert password
 		System.out.println("Text Field Cleared");	
-		driver.findElement(By.className("btn-primary")).click();
+		driver.findElement(By.className("btn-primary")).click();  //this will click the element
 		System.out.println("Login successfully");	
-		//this will click the element
+		
+		driver.get("http://192.168.15.237/sanjay-bagisot/public/"); // open bagisto Shop
+		driver.findElement(By.className("welcome-content")).click();
+		driver.findElement(By.id("login")).click(); 
+		driver.findElement(By.name("email")).sendKeys("sanjay.bhatt371@webkul.com");  
+		driver.findElement(By.name("password")).sendKeys("Sanjay@123#@!"); 
+		driver.findElement(By.id("userLogin")).click(); 
+		
+		
+		
+		
+		
+		
 		
 		/*driver.findElement(By.name("login")).click(); // Clicking on Login button*/
 		
