@@ -38,7 +38,23 @@ public class PlaceOrderAutomate {
 		driver.findElement(By.className("rango-plus")).click();	
 		Thread.sleep(2000); 
 		driver.findElement(By.className("add-to-cart-btn")).click();
-		
+		System.out.println("Add to cart successfully");
+		Thread.sleep(7000); 
+		driver.findElement(By.className("material-icons-outlined")).click();
+		Thread.sleep(2000); 
+		driver.findElement(By.className("remove-decoration")).click();
+		Thread.sleep(4000); 
+		driver.findElement(By.className("text-uppercase")).click();
+		Thread.sleep(8000);
+		driver.findElement(By.cssSelector("input[type='radio']")).click();
+		Thread.sleep(8000);
+		driver.findElement(By.id("free_free")).click();
+		Thread.sleep(9000);
+		driver.findElement(By.id("cashondelivery")).click();
+		Thread.sleep(9000);
+		driver.findElement(By.id("checkout-place-order-button")).click();
+		System.out.println("Order Created successfully");
+		driver.quit(); 
 
 	}
 
