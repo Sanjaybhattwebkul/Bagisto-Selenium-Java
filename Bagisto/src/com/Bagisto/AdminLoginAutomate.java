@@ -22,6 +22,7 @@ public class AdminLoginAutomate {
 		driver.findElement(By.id("login")).click(); 
 		driver.findElement(By.name("email")).sendKeys("sanjay.bhatt371@webkul.com");  
 		driver.findElement(By.name("password")).sendKeys("Sanjay@123#@!"); 
+		System.out.println("sign success");
 		driver.findElement(By.id("userLogin")).click(); 
 		
 		
