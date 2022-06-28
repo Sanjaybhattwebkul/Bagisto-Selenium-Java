@@ -47,21 +47,30 @@ public class PlaceOrderAutomate {
 		Thread.sleep(8000);
 		driver.findElement(By.id("mini-cart")).click();
 		
-		driver.findElement(By.className("material-icons-outlined")).click();
+		Thread.sleep(3000);  // click on view shoping cart link
+		driver.findElement(By.linkText("View Shopping Cart")).click();
 		
-		Thread.sleep(3000); 
-		driver.findElement(By.className("remove-decoration")).click();
-		Thread.sleep(4000); 
-		driver.findElement(By.className("text-uppercase")).click();
-		Thread.sleep(8000);
+		//driver.findElement(By.xpath("//a[contains(@class,'link-color')]")).click();		
+		
+		
+		Thread.sleep(3000);  // click on checkout page 
+		 driver.findElement(By.xpath("//a[contains(@class,'text-uppercase')]")).click();
+		
+		Thread.sleep(3000);  // click on saved address
 		driver.findElement(By.cssSelector("input[type='radio']")).click();
-		
+
 		System.out.println("Address saved successfully");
-		Thread.sleep(8000);
-		driver.findElement(By.id("free_free")).click();
-		Thread.sleep(9000);
-		driver.findElement(By.id("cashondelivery")).click();
-		Thread.sleep(9000);
+		
+		Thread.sleep(10000);  // shipping address selected		
+		driver.findElement(By.name("shipping_method")).click();
+		
+		System.out.println("Shipping method selected successfully");
+		
+		Thread.sleep(9000); // payment methos selected			
+		driver.findElement(By.id("cashondelivery")).click();		
+		System.out.println("Payment method selected successfully");
+		
+		Thread.sleep(9000); // place order button clicked
 		driver.findElement(By.id("checkout-place-order-button")).click();
 		System.out.println("Order Created successfully");
 		
