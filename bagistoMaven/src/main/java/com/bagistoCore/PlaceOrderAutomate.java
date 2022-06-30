@@ -1,6 +1,8 @@
 package com.bagistoCore;
 
+import java.time.Duration;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.WindowType;
@@ -15,6 +17,7 @@ public class PlaceOrderAutomate {
 		
 		System.setProperty("webdriver.chrome.driver", "/home/users/sanjay.bhatt/chromedriver_linux64/chromedriver");
 		WebDriver driver = new ChromeDriver(); // create object of interface
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		
 		driver.get("http://192.168.15.237/sanjay-bagisot/public/");		
 		
@@ -23,48 +26,65 @@ public class PlaceOrderAutomate {
 		Thread.sleep(2000);    //Delay execution for 5 seconds to view the maximize operation				
 		
 		driver.findElement(By.className("welcome-content")).click();
-		Thread.sleep(1000); 
+		
+		
 		driver.findElement(By.id("login")).click(); 
-		Thread.sleep(1000); 
+		
 		driver.findElement(By.name("email")).sendKeys("sanjay.bhatt371@webkul.com");  
 		driver.findElement(By.name("password")).sendKeys("Sanjay@123#@!"); 
-		Thread.sleep(1000); 		
-		driver.findElement(By.id("userLogin")).click();
+		Thread.sleep(1000); 
+		System.out.println("Customer Login succesfully");
 		
+		driver.findElement(By.id("userLogin")).click();		
 		System.out.println("sign success");	
 		
-		Thread.sleep(1000); 
+		
 		driver.findElement(By.className("logo")).click();		
-		Thread.sleep(9000); 
 		driver.findElement(By.id("Red Wayfarer Sunglasses")).click(); 		
-		Thread.sleep(2000);		
 		driver.findElement(By.className("rango-plus")).click();	
 		Thread.sleep(2000); 
 		driver.findElement(By.className("add-to-cart-btn")).click();
 		
 		System.out.println("Add to cart successfully");
 		
-		Thread.sleep(8000);
+		// Close flash message alert
+		driver.findElement(By.cssSelector("a.close")).click();	
 		driver.findElement(By.id("mini-cart")).click();
 		
-		Thread.sleep(3000);  // click on view shoping cart link
+		Thread.sleep(1000);  // click on view shoping cart link
 		driver.findElement(By.linkText("View Shopping Cart")).click();
 		
-		//driver.findElement(By.xpath("//a[contains(@class,'link-color')]")).click();		
+			
 		
 		
-		Thread.sleep(3000);  // click on checkout page 
+		//Thread.sleep(3000);  // click on checkout page 
 		 driver.findElement(By.xpath("//a[contains(@class,'text-uppercase')]")).click();
 		
-		Thread.sleep(3000);  // click on saved address
+		//Thread.sleep(3000);  // click on saved address
 		driver.findElement(By.cssSelector("input[type='radio']")).click();
 
-		System.out.println("Address saved successfully");
+		System.out.println("Address saved successfully");	
 		
-		Thread.sleep(10000);  // shipping address selected		
-		driver.findElement(By.name("shipping_method")).click();
+		// Scroll page down 
+		JavascriptExecutor js = (JavascriptExecutor) driver;		
+	
+		String Element = driver.findElement(By.xpath("//div[@class='shipping-methods']/b[1]")).getText();
+
+		 System.out.println(Element);
+        // Scrolling down the page till the element is found		
+        js.executeScript("arguments[0].scrollIntoView();", Element);
+        
+				 
+		Thread.sleep(4000);  // shipping address selected		
+		driver.findElement(By.cssSelector("#free_free")).click();
+		
 		
 		System.out.println("Shipping method selected successfully");
+		
+		// Scroll page down 
+		JavascriptExecutor js_one = (JavascriptExecutor) driver;
+		js_one.executeScript("window.scrollBy(0,-350)", "");
+		
 		
 		Thread.sleep(9000); // payment methos selected			
 		driver.findElement(By.id("cashondelivery")).click();		
