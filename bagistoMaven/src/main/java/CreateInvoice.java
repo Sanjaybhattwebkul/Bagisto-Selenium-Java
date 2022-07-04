@@ -7,7 +7,6 @@ import org.openqa.selenium.chrome.ChromeDriver;
 public class CreateInvoice {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		System.setProperty("webdriver.chrome.driver", "/home/users/sanjay.bhatt/chromedriver_linux64/chromedriver");
 		WebDriver driver = new ChromeDriver();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
@@ -24,7 +23,7 @@ public class CreateInvoice {
 		driver.findElement(By.xpath("//div[@class='page-action']/a[2]")).click();
 		System.out.println("Invoice Button Clicked");
 		driver.findElement(By.cssSelector("form button")).click();		
-		System.out.println("Invoice Created Successfully");
+		System.out.println("Invoice Created Successfully");	
 		
 
 	}
