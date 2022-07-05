@@ -79,8 +79,10 @@ public class PlaceOrderAutomate {
 		driver.findElement(By.id("checkout-place-order-button")).click();
 		System.out.println("Order Created successfully");
 		Thread.sleep(3000);
-		System.out.println(driver.findElement(By.xpath("//div[@class='order-success-content']/a[1]")).getText());
 		
+		System.out.println(driver.findElement(By.cssSelector("a[href*='http://192.168.15.237/sanjay-bagisto/public/customer/account/orders/view']")).getText());
+		
+		String OrderId = driver.findElement(By.cssSelector("a[href*='http://192.168.15.237/sanjay-bagisto/public/customer/account/orders/view']")).getText();
 		
 		// OPen Admin Panel In New Tab		
 		driver.switchTo().newWindow(WindowType.TAB);		
@@ -96,7 +98,9 @@ public class PlaceOrderAutomate {
 		// CREATE SHIPPING
 		driver.findElement(By.xpath("//div[@class='navbar-left']/ul/li[2]")).click();
 		System.out.println("Orders Page Opened");
-		driver.findElement(By.linkText("http://192.168.15.237/sanjay-bagisto/public/admin/sales/orders/view/44")).click();
+		Thread.sleep(1000);
+		System.out.println("http://192.168.15.237/sanjay-bagisto/public/admin/sales/orders/view/"+OrderId);			
+		driver.findElement(By.xpath("//a[@id="+OrderId+"]")).click();
 		driver.findElement(By.xpath("//div[@class='page-action']/a[3]")).click();
 		System.out.println("Shiiping Button Clicked");
 		driver.findElement(By.tagName("select")).click();

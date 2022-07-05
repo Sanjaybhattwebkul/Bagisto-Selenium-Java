@@ -13,7 +13,7 @@ public class CreateShipping {
 		WebDriver driver = new ChromeDriver();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		driver.manage().window().maximize();
-		driver.get("http://192.168.15.237/sanjay-bagisot/public/backend/login");
+		driver.get("http://192.168.15.237/sanjay-bagisto/public/admin/login");
 		driver.findElement(By.id("email")).sendKeys("admin@example.com"); 
 		driver.findElement(By.id("password")).sendKeys("admin123");		
 		driver.findElement(By.className("btn-primary")).click(); 
