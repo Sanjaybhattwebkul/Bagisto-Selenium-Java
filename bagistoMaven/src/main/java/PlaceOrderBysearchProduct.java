@@ -41,7 +41,8 @@ public class PlaceOrderBysearchProduct {
 		// CUSTOMER LOGIN		
 		driver.findElement(By.name("email")).sendKeys(email);
 		driver.findElement(By.name("password")).sendKeys(password);
-		driver.findElement(By.xpath("//form/button")).click();		
+		driver.findElement(By.id("shoPassword")).click();
+		driver.findElement(By.xpath("//input[@value='Sign In']")).click();		
 		System.out.println("Customer Login Successfull");
 		
 		
