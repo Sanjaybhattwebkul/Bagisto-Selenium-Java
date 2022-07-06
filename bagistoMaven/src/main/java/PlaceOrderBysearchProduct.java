@@ -9,10 +9,10 @@ public class PlaceOrderBysearchProduct {
 	public static void main(String[] args) throws InterruptedException {
 		System.setProperty("webdriver.chrome.driver", "/home/users/sanjay.bhatt/chromedriver_linux64/chromedriver");
 		WebDriver driver = new ChromeDriver(); 
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));	
-		driver.manage().window().maximize();
-		driver.get("http://192.168.15.237/sanjay-bagisto/public/");	
 		
+		// GetURL
+		getUrl(driver,"http://192.168.15.237/sanjay-bagisto/public/");
+	
 		// SEARCH PRODUCT
 		searchProduct(driver,"cycle");
 		
@@ -70,6 +70,13 @@ public class PlaceOrderBysearchProduct {
 	{
 		driver.findElement(By.xpath(locator)).click();
 		System.out.println("Product Added To Whislist Successfully");
+	}
+	
+	public static void getUrl(WebDriver driver,String URL)
+	{
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));	
+		driver.manage().window().maximize();
+		driver.get(URL);	
 	}
 
 }
