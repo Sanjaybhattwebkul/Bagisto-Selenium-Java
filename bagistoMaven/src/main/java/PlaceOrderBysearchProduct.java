@@ -25,32 +25,39 @@ public class PlaceOrderBysearchProduct {
 		
 		// CUSTOMER SIGNUP
 		String email  = "admin@bagisto.com";
-		String password = "admin123";		
+		String password = "admin123";	
+		customerSignup(driver,"Bagisto","Admin",email,password);		
+		
+		// CUSTOMER LOGIN		
+		Thread.sleep(1000);
+		customerLogin(driver,email,password);		
+		
+		//Add Product To Wishlist after search product
+		searchProduct(driver,"cycle");
+		addToWishlist(driver,"//a[@title='Add product to wishlist']");
+	}
+	
+	public static void customerSignup(WebDriver driver,String firstName, String lastName, String email, String password)
+	{
 		driver.get("http://192.168.15.237/sanjay-bagisto/public/customer/register");
-		driver.findElement(By.name("first_name")).sendKeys("Bagisto");
-		driver.findElement(By.name("last_name")).sendKeys("Admin");
+		driver.findElement(By.name("first_name")).sendKeys(firstName);
+		driver.findElement(By.name("last_name")).sendKeys(lastName);
 		driver.findElement(By.name("email")).sendKeys(email);
 		driver.findElement(By.name("password")).sendKeys(password);
 		driver.findElement(By.name("password_confirmation")).sendKeys(password);		
 		driver.findElement(By.xpath("//form/button")).click();		
 		System.out.println("Customer REgistration Successfull");
-		
-		// CUSTOMER LOGIN		
-		Thread.sleep(1000);
-		driver.findElement(By.name("email")).sendKeys("admin@bagisto.com");
-		driver.findElement(By.name("password")).sendKeys("admin123");
+	}
+	
+	public static void customerLogin(WebDriver driver,String email,String password)
+	{
+		driver.findElement(By.name("email")).sendKeys(email);
+		driver.findElement(By.name("password")).sendKeys(password);
 		driver.findElement(By.id("shoPassword")).click();
 		driver.findElement(By.xpath("//input[@value='Sign In']")).click();		
 		System.out.println("Customer Login Successfull");
 		
-		//Add wishlist after search product
-		searchProduct(driver,"cycle");
-		addToWishlist(driver,"//a[@title='Add product to wishlist']");
-		
-		
-
 	}
-	
 	public static void searchProduct(WebDriver driver, String searchText)
 	{
 		driver.get("http://192.168.15.237/sanjay-bagisto/public/");			
@@ -59,10 +66,10 @@ public class PlaceOrderBysearchProduct {
 		driver.findElement(By.xpath("//img[@alt='Cycle on rent']")).click();
 	}
 	
-	public static void addToWishlist(WebDriver driver , String path)
+	public static void addToWishlist(WebDriver driver , String locator)
 	{
-		//"//a[@title='Add product to wishlist']"
-		driver.findElement(By.xpath(path)).click();
+		driver.findElement(By.xpath(locator)).click();
+		System.out.println("Product Added To Whislist Successfully");
 	}
 
 }
