@@ -14,17 +14,14 @@ public class PlaceOrderBysearchProduct {
 		driver.get("http://192.168.15.237/sanjay-bagisto/public/");	
 		
 		// SEARCH PRODUCT
-		String searchText = "cycle";
-		driver.findElement(By.cssSelector("input[placeholder='Search products here']")).sendKeys(searchText);
-		driver.findElement(By.className("rango-search")).click();
-		driver.findElement(By.xpath("//img[@alt='Cycle on rent']")).click();
+		searchProduct(driver,"cycle");
 		
 		// ADD TO COMPARE LIST
 		driver.findElement(By.xpath("//a[@title='Add product to compare list']")).click();	
 		System.out.println("Product Added To compare successfully");
 		driver.findElement(By.xpath("//a[text()='×']")).click();
 		driver.findElement(By.cssSelector("a[href*='http://192.168.15.237/sanjay-bagisto/public/comparison']")).click();
-		driver.findElement(By.xpath("//a[@title='Add product to wishlist']")).click();		
+		addToWishlist(driver,"//a[@title='Add product to wishlist']");				
 		
 		// CUSTOMER SIGNUP
 		String email  = "admin@bagisto.com";
@@ -34,19 +31,38 @@ public class PlaceOrderBysearchProduct {
 		driver.findElement(By.name("last_name")).sendKeys("Admin");
 		driver.findElement(By.name("email")).sendKeys(email);
 		driver.findElement(By.name("password")).sendKeys(password);
-		driver.findElement(By.name("password_confirmation")).sendKeys("admin123");		
+		driver.findElement(By.name("password_confirmation")).sendKeys(password);		
 		driver.findElement(By.xpath("//form/button")).click();		
 		System.out.println("Customer REgistration Successfull");
 		
 		// CUSTOMER LOGIN		
-		driver.findElement(By.name("email")).sendKeys(email);
-		driver.findElement(By.name("password")).sendKeys(password);
+		Thread.sleep(1000);
+		driver.findElement(By.name("email")).sendKeys("admin@bagisto.com");
+		driver.findElement(By.name("password")).sendKeys("admin123");
 		driver.findElement(By.id("shoPassword")).click();
 		driver.findElement(By.xpath("//input[@value='Sign In']")).click();		
 		System.out.println("Customer Login Successfull");
 		
+		//Add wishlist after search product
+		searchProduct(driver,"cycle");
+		addToWishlist(driver,"//a[@title='Add product to wishlist']");
+		
 		
 
+	}
+	
+	public static void searchProduct(WebDriver driver, String searchText)
+	{
+		driver.get("http://192.168.15.237/sanjay-bagisto/public/");			
+		driver.findElement(By.cssSelector("input[placeholder='Search products here']")).sendKeys(searchText);
+		driver.findElement(By.className("rango-search")).click();
+		driver.findElement(By.xpath("//img[@alt='Cycle on rent']")).click();
+	}
+	
+	public static void addToWishlist(WebDriver driver , String path)
+	{
+		//"//a[@title='Add product to wishlist']"
+		driver.findElement(By.xpath(path)).click();
 	}
 
 }
