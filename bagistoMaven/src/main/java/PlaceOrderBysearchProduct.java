@@ -42,6 +42,18 @@ public class PlaceOrderBysearchProduct {
 		
 		// View Wishlist Products		
 		viewWishlist(driver,URL);
+		
+		// BOOK THE PRODUCT
+		driver.findElement(By.cssSelector("form button:nth-child(1)")).click();
+		driver.findElement(By.className("flatpickr-input")).click();
+		driver.findElement(By.xpath("//div[@class='dayContainer']/span[13]")).click();
+		System.out.println("Appointment Date Selected");
+		driver.findElement(By.className("vue-go-top__content")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("//div[@class='product-actions']/button[1]")).click();
+		//driver.findElement(By.xpath("//*[text()='Book Now']")).click();
+		System.out.println("Book Now Button Clicked");
+		
 	}
 	
 	public static void customerSignup(WebDriver driver,String firstName, String lastName, String email, String password,String URL)
