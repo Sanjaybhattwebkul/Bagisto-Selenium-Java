@@ -39,6 +39,9 @@ public class PlaceOrderBysearchProduct {
 		//Add Product To Wishlist after search product
 		searchProduct(driver,"cycle",URL);
 		addToWishlist(driver,"//a[@title='Add product to wishlist']");
+		
+		// View Wishlist Products		
+		viewWishlist(driver,URL);
 	}
 	
 	public static void customerSignup(WebDriver driver,String firstName, String lastName, String email, String password,String URL)
@@ -81,6 +84,11 @@ public class PlaceOrderBysearchProduct {
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));	
 		driver.manage().window().maximize();
 		driver.get(URL);	
+	}
+	
+	public static void viewWishlist(WebDriver driver,String URL)
+	{
+		driver.navigate().to(URL+"customer/account/wishlist");
 	}
 
 }
