@@ -13,10 +13,10 @@ public class PlaceOrderAutomate {
 
 	public static void main(String[] args) throws InterruptedException {
 		/*System.setProperty("webdriver.gecko.driver", "/home/users/sanjay.bhatt/geckodriver-v0.31.0-linux64/geckodriver");
-		WebDriver driver = new FirefoxDriver();*/ 
+		WebDriver driver = new FirefoxDriver();*/
 		
 		System.setProperty("webdriver.chrome.driver", "/home/users/sanjay.bhatt/chromedriver_linux64/chromedriver");
-		WebDriver driver = new ChromeDriver(); // create object of interface
+		WebDriver driver = new ChromeDriver();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		
 		driver.get("http://192.168.15.237/sanjay-bagisto/public/");		
@@ -53,9 +53,6 @@ public class PlaceOrderAutomate {
 		
 		Thread.sleep(1000);  // click on view shoping cart link
 		driver.findElement(By.linkText("View Shopping Cart")).click();
-		
-			
-		
 		
 		//Thread.sleep(3000);  // click on checkout page 
 		 driver.findElement(By.xpath("//a[contains(@class,'text-uppercase')]")).click();

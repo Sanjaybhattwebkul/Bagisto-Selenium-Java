@@ -1,5 +1,4 @@
 import java.time.Duration;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -9,13 +8,12 @@ public class PlaceOrderBysearchProduct {
 	public static void main(String[] args) throws InterruptedException {
 		System.setProperty("webdriver.chrome.driver", "/home/users/sanjay.bhatt/chromedriver_linux64/chromedriver");
 		WebDriver driver = new ChromeDriver(); 
-		
 		String firstName = "Bagisto";
 		String lastName = "Admin";
 		String email  = "admin@bagisto.com";
 		String password = "admin123";
-		String URL = "http://192.168.15.237/sanjay-bagisto/public/";
-		
+		String URL = "http://192.168.15.237/sanjay-bagisto/public/";		
+	
 		// GetURL
 		getUrl(driver,URL);
 	
@@ -41,24 +39,39 @@ public class PlaceOrderBysearchProduct {
 		addToWishlist(driver,"//a[@title='Add product to wishlist']");
 		
 		// View Wishlist Products		
-		viewWishlist(driver,URL);
+		nagivate(driver,URL+"customer/account/wishlist");
 		
 		// BOOK THE PRODUCT
 		driver.findElement(By.cssSelector("form button:nth-child(1)")).click();
-		driver.findElement(By.className("flatpickr-input")).click();
-		driver.findElement(By.xpath("//div[@class='dayContainer']/span[13]")).click();
-		System.out.println("Appointment Date Selected");
-		driver.findElement(By.className("vue-go-top__content")).click();
-		Thread.sleep(1000);
-		driver.findElement(By.xpath("//div[@class='product-actions']/button[1]")).click();
-		//driver.findElement(By.xpath("//*[text()='Book Now']")).click();
-		System.out.println("Book Now Button Clicked");
 		
+		// Select Appointment Date
+		Thread.sleep(1000);	
+		SelectAppointmentDate(driver);
+		Thread.sleep(1000);
+		driver.findElement(By.className("vue-go-top__content")).click();
+		Thread.sleep(1000);		
+		PlaceOrderBysearchProduct obj = new PlaceOrderBysearchProduct();
+		obj.bookProduct(driver,URL);		
+		nagivate(driver,URL+"checkout/cart");
+		
+	}
+	
+	public static void SelectAppointmentDate(WebDriver driver) throws InterruptedException
+	{
+		driver.findElement(By.className("flatpickr-input")).click();
+		driver.findElement(By.xpath("//div[@class='dayContainer']/span[15]")).click();
+		System.out.println("Appointment Date Selected");
+		
+	}
+	public void bookProduct(WebDriver driver,String URL)
+	{
+		driver.findElement(By.xpath("//div[@class='add-to-cart-btn pl0']")).click();
+		System.out.println("Book Now Button Clicked");
 	}
 	
 	public static void customerSignup(WebDriver driver,String firstName, String lastName, String email, String password,String URL)
 	{
-		driver.get(URL+"customer/register");
+		nagivate(driver,URL+"customer/register");		
 		driver.findElement(By.name("first_name")).sendKeys(firstName);
 		driver.findElement(By.name("last_name")).sendKeys(lastName);
 		driver.findElement(By.name("email")).sendKeys(email);
@@ -98,9 +111,9 @@ public class PlaceOrderBysearchProduct {
 		driver.get(URL);	
 	}
 	
-	public static void viewWishlist(WebDriver driver,String URL)
+	public static void nagivate(WebDriver driver,String URL)
 	{
-		driver.navigate().to(URL+"customer/account/wishlist");
+		driver.navigate().to(URL);
 	}
 
 }
