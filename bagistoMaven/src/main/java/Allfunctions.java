@@ -5,6 +5,24 @@ import org.openqa.selenium.WebDriver;
 
 public class Allfunctions {
 
+	
+	public static void saveCustomerAdress(WebDriver driver)
+	{
+		driver.navigate().to("http://192.168.15.237/sanjay-bagisto/public/checkout/onepage");
+		driver.findElement(By.id("billing[company_name]")).sendKeys("HCL Technologies");
+		driver.findElement(By.id("billing_address_0")).sendKeys("AVR PARK");
+		driver.findElement(By.id("billing[city]")).sendKeys("NOIDA");
+		driver.findElement(By.id("billing[country]")).click();
+		driver.findElement(By.xpath("//option[@value='IN']")).click();
+		driver.findElement(By.id("billing[state]")).click();
+		driver.findElement(By.xpath("//option[@value='UT']")).click();
+		driver.findElement(By.id("billing[postcode]")).sendKeys("262523");
+		driver.findElement(By.id("billing[phone]")).sendKeys("9784562390");
+		driver.findElement(By.id("billing[save_as_address]")).click();
+		
+		
+	}
+	
 	public static void SelectAppointmentDate(WebDriver driver) throws InterruptedException
 	{
 		driver.findElement(By.className("flatpickr-input")).click();
@@ -65,9 +83,30 @@ public class Allfunctions {
 		driver.navigate().to(URL);
 	}
 	
-	/*public static void main(String[] args) {
-		// TODO Auto-generated method stub
+	public static void placeOrder(WebDriver driver) throws InterruptedException
+	{
+		//Thread.sleep(3000);  // click on checkout page 
+		 driver.findElement(By.xpath("//a[contains(@class,'text-uppercase')]")).click();
+		
+		//Thread.sleep(3000);  // click on saved address
+		driver.findElement(By.cssSelector("input[type='radio']")).click();
+		System.out.println("Address saved successfully");
+		driver.findElement(By.cssSelector("form li")).click();
+		
+		Thread.sleep(2000);  // shipping address selected			
+		driver.findElement(By.xpath("//input[@id='free_free']")).click();
 
-	}*/
+		System.out.println("Shipping method selected successfully");	
+		
+		
+		Thread.sleep(1000); // payment methos selected			
+		driver.findElement(By.id("cashondelivery")).click();		
+		System.out.println("Payment method selected successfully");
+		
+		Thread.sleep(2000); // place order button clicked
+		driver.findElement(By.id("checkout-place-order-button")).click();
+		System.out.println("Order Created successfully");
+		Thread.sleep(3000);
+	}
 
 }

@@ -29,7 +29,7 @@ public class PlaceOrderAutomate {
 		
 		
 		driver.findElement(By.linkText("Sign In")).click();
-		//driver.findElement(By.id("login")).click(); 
+		
 		Thread.sleep(1000);
 		driver.findElement(By.name("email")).sendKeys("sanjay.bhatt371@webkul.in");  
 		driver.findElement(By.name("password")).sendKeys("Sanjay@123#@!"); 
@@ -39,7 +39,7 @@ public class PlaceOrderAutomate {
 		
 		driver.findElement(By.xpath("//img[@alt='Sunglasses']")).click();
 
-		//driver.findElement(By.xpath("//img[contains(@alt,'Sunglasses')]")).click(); 
+		
 		
 		driver.findElement(By.className("rango-plus")).click();	
 		Thread.sleep(2000); 

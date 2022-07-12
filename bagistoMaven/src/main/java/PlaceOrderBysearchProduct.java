@@ -8,6 +8,8 @@ public class PlaceOrderBysearchProduct extends Allfunctions{
 	public static void main(String[] args) throws InterruptedException {
 		System.setProperty("webdriver.chrome.driver", "/home/users/sanjay.bhatt/chromedriver_linux64/chromedriver");
 		WebDriver driver = new ChromeDriver(); 
+		
+		// DEFINE ALL VARIABLES 
 		String firstName = "Super";
 		String lastName = "Admin";
 		String email  = "bagisto@webkul.com";
@@ -44,15 +46,20 @@ public class PlaceOrderBysearchProduct extends Allfunctions{
 		// BOOK THE PRODUCT
 		driver.findElement(By.cssSelector("form button:nth-child(1)")).click();
 		
-		// Select Appointment Date
 		Thread.sleep(1000);	
+		
+		// Select Appointment Date
 		SelectAppointmentDate(driver);
 		Thread.sleep(1000);
 		driver.findElement(By.className("vue-go-top__content")).click();
 		Thread.sleep(1000);		
+		
 		PlaceOrderBysearchProduct obj = new PlaceOrderBysearchProduct();
-		obj.bookProduct(driver,URL);		
+		obj.bookProduct(driver,URL);
+		
 		nagivate(driver,URL+"checkout/cart");
+		
+		placeOrder(driver); // Place Order function called
 		
 	}
 }
