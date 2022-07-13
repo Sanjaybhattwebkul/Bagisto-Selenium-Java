@@ -30,7 +30,7 @@ public class PlaceOrderBysearchProduct extends Allfunctions{
 		addToWishlist(driver,"//a[@title='Add product to wishlist']");				
 		
 		// CUSTOMER SIGNUP	
-		customerSignup(driver,firstName,lastName,email,password,URL);		
+		//customerSignup(driver,firstName,lastName,email,password,URL);		
 		
 		// CUSTOMER LOGIN		
 		Thread.sleep(1000);
@@ -40,7 +40,8 @@ public class PlaceOrderBysearchProduct extends Allfunctions{
 		searchProduct(driver,"cycle",URL);
 		addToWishlist(driver,"//a[@title='Add product to wishlist']");
 		
-		// View Wishlist Products		
+		// View Wishlist Products	
+		Thread.sleep(1000);
 		nagivate(driver,URL+"customer/account/wishlist");
 		
 		// BOOK THE PRODUCT
@@ -58,8 +59,10 @@ public class PlaceOrderBysearchProduct extends Allfunctions{
 		obj.bookProduct(driver,URL);
 		
 		nagivate(driver,URL+"checkout/cart");
-		
+		saveCustomerAdress(driver);
+		Thread.sleep(2000); 
 		placeOrder(driver); // Place Order function called
+		
 		
 	}
 }

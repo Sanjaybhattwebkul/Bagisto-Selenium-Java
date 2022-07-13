@@ -62,7 +62,7 @@ public class PlaceOrderAutomate {
 		System.out.println("Address saved successfully");
 		driver.findElement(By.cssSelector("form li")).click();
 		
-		Thread.sleep(2000);  // shipping address selected			
+		Thread.sleep(2000);  // shipping method selected			
 		driver.findElement(By.xpath("//input[@id='free_free']")).click();
 
 		System.out.println("Shipping method selected successfully");	
