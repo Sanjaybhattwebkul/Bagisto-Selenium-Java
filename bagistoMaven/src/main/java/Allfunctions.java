@@ -1,7 +1,8 @@
 import java.time.Duration;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 
 public class Allfunctions {
 
@@ -10,6 +11,14 @@ public class Allfunctions {
 	{
 		driver.findElement(By.id("cashondelivery")).click();
 		System.out.println("Payment method selected successfully");
+	}
+	
+	public static void staticDropdown(WebDriver driver, String selectId)
+	{
+		WebElement staticDropdown = driver.findElement(By.id(selectId));
+		Select dropdown = new Select(staticDropdown);
+		dropdown.selectByIndex(1);
+		System.out.println(dropdown.getFirstSelectedOption().getText());
 	}
 	
 	public static void saveCustomerAdress(WebDriver driver)
