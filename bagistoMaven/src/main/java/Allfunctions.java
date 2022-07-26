@@ -2,11 +2,11 @@ import java.time.Duration;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 
 public class Allfunctions {
 
-	
 	public static void selectPaymentMethod(WebDriver driver)
 	{
 		driver.findElement(By.id("cashondelivery")).click();
@@ -17,7 +17,11 @@ public class Allfunctions {
 	{
 		WebElement staticDropdown = driver.findElement(By.id(selectId));
 		Select dropdown = new Select(staticDropdown);
-		dropdown.selectByIndex(1);
+		dropdown.selectByVisibleText("Yellow");
+		System.out.println(dropdown.getFirstSelectedOption().getText());
+		dropdown.selectByValue("5");		
+		System.out.println(dropdown.getFirstSelectedOption().getText());
+		dropdown.selectByIndex(2);
 		System.out.println(dropdown.getFirstSelectedOption().getText());
 	}
 	
