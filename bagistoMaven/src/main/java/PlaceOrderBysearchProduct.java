@@ -55,6 +55,8 @@ public class PlaceOrderBysearchProduct extends Allfunctions{
 		driver.findElement(By.className("vue-go-top__content")).click();
 		Thread.sleep(1000);		
 		
+		addQuantity(driver, "rango-plus");
+		
 		PlaceOrderBysearchProduct obj = new PlaceOrderBysearchProduct();
 		obj.bookProduct(driver,URL);
 		

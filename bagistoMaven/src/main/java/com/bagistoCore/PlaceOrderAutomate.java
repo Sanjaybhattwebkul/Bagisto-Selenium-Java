@@ -43,6 +43,7 @@ public class PlaceOrderAutomate {
 		
 		driver.findElement(By.className("rango-plus")).click();	
 		Thread.sleep(2000); 
+		
 		driver.findElement(By.className("add-to-cart-btn")).click();
 		
 		System.out.println("Add to cart successfully");

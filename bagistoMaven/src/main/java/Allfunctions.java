@@ -47,6 +47,18 @@ public class Allfunctions {
 		System.out.println("Appointment Date Selected");
 		
 	}
+	
+	public static void addQuantity(WebDriver driver,String locator)
+	{
+		int i=1;
+		while(i<5)
+		{
+			driver.findElement(By.className(locator)).click();
+			i++;
+		}
+			
+	}
+	
 	public void bookProduct(WebDriver driver,String URL)
 	{
 		driver.findElement(By.xpath("//div[@class='add-to-cart-btn pl0']")).click();

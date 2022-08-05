@@ -1937,3 +1937,24 @@ org.eclipse.core.runtime.CoreException: Could not resolve artifact com.google.gu
 2022-07-26 13:32:58,111 [Worker-53: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/users/sanjay.bhatt/Bagisto_Automation/bagistoMaven/src/main/resources
 2022-07-26 13:32:58,115 [Worker-53: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
 2022-07-26 13:32:58,115 [Worker-53: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/users/sanjay.bhatt/Bagisto_Automation/bagistoMaven/src/test/resources
+2022-08-05 16:56:21,316 [Worker-3: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2022-08-05 17:01:37,213 [Worker-14: Launching PlaceOrderBysearchProduct] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-08-05 17:01:37,257 [Worker-14: Launching PlaceOrderBysearchProduct] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/users/sanjay.bhatt/Bagisto_Automation/bagistoMaven/src/main/resources
+2022-08-05 17:01:37,259 [Worker-14: Launching PlaceOrderBysearchProduct] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-08-05 17:01:37,259 [Worker-14: Launching PlaceOrderBysearchProduct] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/users/sanjay.bhatt/Bagisto_Automation/bagistoMaven/src/test/resources
+2022-08-05 17:22:42,719 [Worker-13: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-08-05 17:22:42,771 [Worker-13: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/users/sanjay.bhatt/Bagisto_Automation/bagistoMaven/src/main/resources
+2022-08-05 17:22:42,773 [Worker-13: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-08-05 17:22:42,773 [Worker-13: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/users/sanjay.bhatt/Bagisto_Automation/bagistoMaven/src/test/resources
+2022-08-05 17:25:04,665 [Worker-18: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-08-05 17:25:04,665 [Worker-18: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/users/sanjay.bhatt/Bagisto_Automation/bagistoMaven/src/main/resources
+2022-08-05 17:25:04,668 [Worker-18: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-08-05 17:25:04,669 [Worker-18: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/users/sanjay.bhatt/Bagisto_Automation/bagistoMaven/src/test/resources
+2022-08-05 17:30:12,819 [Worker-18: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-08-05 17:30:12,820 [Worker-18: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/users/sanjay.bhatt/Bagisto_Automation/bagistoMaven/src/main/resources
+2022-08-05 17:30:12,821 [Worker-18: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-08-05 17:30:12,821 [Worker-18: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/users/sanjay.bhatt/Bagisto_Automation/bagistoMaven/src/test/resources
+2022-08-05 17:30:28,514 [Worker-20: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-08-05 17:30:28,514 [Worker-20: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/users/sanjay.bhatt/Bagisto_Automation/bagistoMaven/src/main/resources
+2022-08-05 17:30:28,515 [Worker-20: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-08-05 17:30:28,516 [Worker-20: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/users/sanjay.bhatt/Bagisto_Automation/bagistoMaven/src/test/resources
